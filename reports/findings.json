@@ -1,0 +1,55 @@
+[
+  {
+    "kind": "web.sqli",
+    "severity": "high",
+    "summary": "Request path contains SQL injection indicators.",
+    "evidence": {
+      "ip": "198.51.100.22",
+      "path": "/search?q=union%20select%20user,email%20from%20users",
+      "matched": "select",
+      "status": 403
+    }
+  },
+  {
+    "kind": "web.sqli",
+    "severity": "high",
+    "summary": "Request path contains SQL injection indicators.",
+    "evidence": {
+      "ip": "198.51.100.25",
+      "path": "/product?id=1%20or%201=1",
+      "matched": "or 1=1",
+      "status": 403
+    }
+  },
+  {
+    "kind": "web.xss",
+    "severity": "high",
+    "summary": "Request path contains cross-site scripting indicators.",
+    "evidence": {
+      "ip": "198.51.100.23",
+      "path": "/login?next=%3Cscript%3Ealert(1)%3C/script%3E",
+      "matched": "<script",
+      "status": 403
+    }
+  },
+  {
+    "kind": "web.scanner",
+    "severity": "medium",
+    "summary": "Request user agent matches a known scanner signature.",
+    "evidence": {
+      "ip": "198.51.100.24",
+      "user_agent": "sqlmap/1.7",
+      "matched": "sqlmap"
+    }
+  },
+  {
+    "kind": "web.scanner",
+    "severity": "medium",
+    "summary": "Request user agent matches a known scanner signature.",
+    "evidence": {
+      "ip": "198.51.100.25",
+      "user_agent": "Nikto",
+      "matched": "nikto"
+    }
+  }
+]

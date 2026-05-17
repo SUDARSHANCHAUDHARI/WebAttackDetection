@@ -1,0 +1,28 @@
+{
+  "requests": 5,
+  "findings": 5,
+  "risk_score": 100,
+  "attacks_by_kind": {
+    "web.sqli": 2,
+    "web.xss": 1,
+    "web.scanner": 2
+  },
+  "top_ips": [
+    {
+      "ip": "198.51.100.25",
+      "findings": 2
+    },
+    {
+      "ip": "198.51.100.22",
+      "findings": 1
+    },
+    {
+      "ip": "198.51.100.23",
+      "findings": 1
+    },
+    {
+      "ip": "198.51.100.24",
+      "findings": 1
+    }
+  ]
+}

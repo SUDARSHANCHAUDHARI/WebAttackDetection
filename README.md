@@ -14,7 +14,30 @@
 
 ## Status
 
-Scaffolded. Implementation pending.
+Working CLI MVP.
+
+## Quick Start
+
+Analyze the included sample nginx log:
+
+```bash
+python3 dashboard/app.py --log data/nginx-web-attacks.log --out-dir reports
+```
+
+Run tests:
+
+```bash
+python3 -m unittest discover -s tests -p 'test_*.py'
+```
+
+## MVP Capabilities
+
+- Parses nginx combined access logs.
+- Detects SQL injection indicators.
+- Detects XSS payload indicators.
+- Flags suspicious scanner user agents.
+- Scores overall request risk.
+- Writes JSON events, JSON findings, JSON summary, and a Markdown report.
 
 ## Repository Status
 
@@ -30,4 +53,3 @@ This repository contains the production-ready foundation for the Web Attack Dete
 - Pull request and issue templates
 - Production readiness checklist
 - Safe ignore rules for local secrets and generated files
-
