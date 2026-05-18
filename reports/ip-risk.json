@@ -1,0 +1,49 @@
+[
+  {
+    "ip": "198.51.100.25",
+    "requests": 4,
+    "findings": 6,
+    "max_severity": "high",
+    "attack_types": [
+      "web.burst",
+      "web.scanner",
+      "web.sensitive_path",
+      "web.sqli"
+    ]
+  },
+  {
+    "ip": "198.51.100.22",
+    "requests": 1,
+    "findings": 1,
+    "max_severity": "high",
+    "attack_types": [
+      "web.sqli"
+    ]
+  },
+  {
+    "ip": "198.51.100.23",
+    "requests": 1,
+    "findings": 1,
+    "max_severity": "high",
+    "attack_types": [
+      "web.xss"
+    ]
+  },
+  {
+    "ip": "198.51.100.24",
+    "requests": 1,
+    "findings": 2,
+    "max_severity": "medium",
+    "attack_types": [
+      "web.scanner",
+      "web.sensitive_path"
+    ]
+  },
+  {
+    "ip": "203.0.113.10",
+    "requests": 1,
+    "findings": 0,
+    "max_severity": "low",
+    "attack_types": []
+  }
+]

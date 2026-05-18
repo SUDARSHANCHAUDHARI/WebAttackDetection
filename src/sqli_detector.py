@@ -12,6 +12,8 @@ SQLI_MARKERS = (
     "sleep(",
     "benchmark(",
     "--",
+    "concat(",
+    "load_file(",
 )
 
 

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 XSS_MARKERS = ("<script", "javascript:", "onerror=", "onload=", "%3cscript")
 SCANNER_AGENTS = ("sqlmap", "nikto", "acunetix", "zap", "nuclei")
+SENSITIVE_PATHS = ("/admin", "/wp-admin", "/.env", "/phpmyadmin", "/server-status")
 
 
 def detect_xss(events: list[dict]) -> list[dict]:
@@ -50,6 +51,33 @@ def detect_suspicious_user_agents(events: list[dict]) -> list[dict]:
                     "ip": event.get("ip"),
                     "user_agent": event.get("user_agent"),
                     "matched": marker,
+                },
+            }
+        )
+    return findings
+
+
+def detect_sensitive_paths(events: list[dict]) -> list[dict]:
+    """Return findings for common exposed-admin or secret paths."""
+    findings: list[dict] = []
+    seen: set[tuple[str, str]] = set()
+    for event in events:
+        decoded = str(event.get("decoded_path", ""))
+        marker = next((item for item in SENSITIVE_PATHS if decoded.startswith(item)), "")
+        key = (str(event.get("ip", "")), marker)
+        if not marker or key in seen:
+            continue
+        seen.add(key)
+        findings.append(
+            {
+                "kind": "web.sensitive_path",
+                "severity": "medium",
+                "summary": "Request targeted a sensitive or administrative path.",
+                "evidence": {
+                    "ip": event.get("ip"),
+                    "path": event.get("path"),
+                    "matched": marker,
+                    "status": event.get("status"),
                 },
             }
         )

@@ -2,17 +2,16 @@
 
 ## Current Status
 
-This repository has production foundation files and an MVP scaffold. The product implementation is not production complete yet.
+This repository has a working local MVP with deterministic nginx parsing, safe sample data, generated reports, and tests. It is not production complete yet.
 
 ## Required Before Public Release
 
-- Implement the primary MVP workflow.
-- Add automated tests for core detection logic.
-- Validate all untrusted inputs.
+- Add log size limits and streaming parsing for hosted uploads.
+- Validate nginx log format and report parse errors.
 - Add structured logging without leaking secrets.
-- Document local setup and deployment.
-- Review all sample data for sensitive content.
-- Add authentication and authorization where user data or device data is handled.
+- Add allowlist/suppression workflow for authorized scanners.
+- Add authentication and authorization before storing multi-user logs.
+- Add retention controls for uploaded web logs and reports.
 - Run dependency and secret scans before release.
 
 ## Definition of Done

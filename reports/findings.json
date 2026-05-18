@@ -51,5 +51,61 @@
       "user_agent": "Nikto",
       "matched": "nikto"
     }
+  },
+  {
+    "kind": "web.sensitive_path",
+    "severity": "medium",
+    "summary": "Request targeted a sensitive or administrative path.",
+    "evidence": {
+      "ip": "198.51.100.24",
+      "path": "/admin",
+      "matched": "/admin",
+      "status": 404
+    }
+  },
+  {
+    "kind": "web.sensitive_path",
+    "severity": "medium",
+    "summary": "Request targeted a sensitive or administrative path.",
+    "evidence": {
+      "ip": "198.51.100.25",
+      "path": "/.env",
+      "matched": "/.env",
+      "status": 404
+    }
+  },
+  {
+    "kind": "web.sensitive_path",
+    "severity": "medium",
+    "summary": "Request targeted a sensitive or administrative path.",
+    "evidence": {
+      "ip": "198.51.100.25",
+      "path": "/wp-admin",
+      "matched": "/wp-admin",
+      "status": 404
+    }
+  },
+  {
+    "kind": "web.sensitive_path",
+    "severity": "medium",
+    "summary": "Request targeted a sensitive or administrative path.",
+    "evidence": {
+      "ip": "198.51.100.25",
+      "path": "/phpmyadmin",
+      "matched": "/phpmyadmin",
+      "status": 404
+    }
+  },
+  {
+    "kind": "web.burst",
+    "severity": "medium",
+    "summary": "Multiple web requests from one IP occurred in a short window.",
+    "evidence": {
+      "ip": "198.51.100.25",
+      "requests": 4,
+      "window_seconds": 24,
+      "first_seen": "17/May/2026:10:02:00 +0000",
+      "last_seen": "17/May/2026:10:02:24 +0000"
+    }
   }
 ]

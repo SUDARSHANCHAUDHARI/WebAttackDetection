@@ -2,6 +2,7 @@
   {
     "ip": "203.0.113.10",
     "timestamp": "17/May/2026:10:00:00 +0000",
+    "timestamp_epoch": 1779012000,
     "method": "GET",
     "path": "/health",
     "decoded_path": "/health",
@@ -12,6 +13,7 @@
   {
     "ip": "198.51.100.22",
     "timestamp": "17/May/2026:10:01:00 +0000",
+    "timestamp_epoch": 1779012060,
     "method": "GET",
     "path": "/search?q=union%20select%20user,email%20from%20users",
     "decoded_path": "/search?q=union select user,email from users",
@@ -22,6 +24,7 @@
   {
     "ip": "198.51.100.23",
     "timestamp": "17/May/2026:10:01:15 +0000",
+    "timestamp_epoch": 1779012075,
     "method": "GET",
     "path": "/login?next=%3Cscript%3Ealert(1)%3C/script%3E",
     "decoded_path": "/login?next=<script>alert(1)</script>",
@@ -32,6 +35,7 @@
   {
     "ip": "198.51.100.24",
     "timestamp": "17/May/2026:10:01:33 +0000",
+    "timestamp_epoch": 1779012093,
     "method": "GET",
     "path": "/admin",
     "decoded_path": "/admin",
@@ -42,11 +46,45 @@
   {
     "ip": "198.51.100.25",
     "timestamp": "17/May/2026:10:02:00 +0000",
+    "timestamp_epoch": 1779012120,
     "method": "GET",
     "path": "/product?id=1%20or%201=1",
     "decoded_path": "/product?id=1 or 1=1",
     "status": 403,
     "user_agent": "Nikto",
     "raw": "198.51.100.25 - - [17/May/2026:10:02:00 +0000] \"GET /product?id=1%20or%201=1 HTTP/1.1\" 403 39 \"-\" \"Nikto\""
+  },
+  {
+    "ip": "198.51.100.25",
+    "timestamp": "17/May/2026:10:02:08 +0000",
+    "timestamp_epoch": 1779012128,
+    "method": "GET",
+    "path": "/.env",
+    "decoded_path": "/.env",
+    "status": 404,
+    "user_agent": "Nikto",
+    "raw": "198.51.100.25 - - [17/May/2026:10:02:08 +0000] \"GET /.env HTTP/1.1\" 404 19 \"-\" \"Nikto\""
+  },
+  {
+    "ip": "198.51.100.25",
+    "timestamp": "17/May/2026:10:02:16 +0000",
+    "timestamp_epoch": 1779012136,
+    "method": "GET",
+    "path": "/wp-admin",
+    "decoded_path": "/wp-admin",
+    "status": 404,
+    "user_agent": "Nikto",
+    "raw": "198.51.100.25 - - [17/May/2026:10:02:16 +0000] \"GET /wp-admin HTTP/1.1\" 404 21 \"-\" \"Nikto\""
+  },
+  {
+    "ip": "198.51.100.25",
+    "timestamp": "17/May/2026:10:02:24 +0000",
+    "timestamp_epoch": 1779012144,
+    "method": "GET",
+    "path": "/phpmyadmin",
+    "decoded_path": "/phpmyadmin",
+    "status": 404,
+    "user_agent": "Nikto",
+    "raw": "198.51.100.25 - - [17/May/2026:10:02:24 +0000] \"GET /phpmyadmin HTTP/1.1\" 404 24 \"-\" \"Nikto\""
   }
 ]

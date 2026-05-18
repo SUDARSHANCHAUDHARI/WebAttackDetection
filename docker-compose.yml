@@ -1,0 +1,7 @@
+services:
+  web-attack-demo:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ./reports:/app/reports
