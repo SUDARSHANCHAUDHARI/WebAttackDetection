@@ -1,81 +1,90 @@
 # Web Attack Detection
 
-[![Python](https://img.shields.io/badge/Python-3.12-blue)](#) [![Status](https://img.shields.io/badge/status-MVP-green)](#) [![Security](https://img.shields.io/badge/security-defensive%20lab-purple)](#)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](#requirements)
+[![Status](https://img.shields.io/badge/status-MVP-green)](#status)
+[![Security](https://img.shields.io/badge/security-defensive%20lab-purple)](#safe-use)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Web log detection lab for SQL injection, XSS, suspicious user agents, and risk summaries.
+Web log detection lab for SQL injection, XSS, suspicious user agents, scanner activity, and risk-scored request summaries.
 
-- **Portfolio group:** Cybersecurity lab project
-- **Status:** MVP implemented, tested, committed, and pushed to GitHub
-- **GitHub:** https://github.com/SUDARSHANCHAUDHARI/WebAttackDetection
-- **Local path:** `/Users/screencloudsudarshan/SUDARSHAN_CODE/sudarshan_repos/CyberSecurity/WebAttackDetection`
+---
 
-## MVP Snapshot
+## Overview
 
-This repository includes a working MVP with safe sample data, deterministic detection or analysis logic, local tests, and generated output reports where relevant. It is ready for README/demo polish or deeper product work.
+Web Attack Detection is a defensive analysis tool that parses nginx combined access logs and flags common web attacks: SQL injection patterns, XSS payloads, scanner-style user agents, sensitive path probing, and high-rate request bursts. Outputs include JSON findings, an IP risk table, a Markdown report, and a triage handoff for analysts.
 
-## Safe Use
+## Features
 
-This project is defensive and analysis-focused. Use only with logs, systems, repositories, and lab environments you own or have permission to assess.
+- Parses nginx combined access logs
+- Detects SQL injection indicators
+- Detects XSS payload indicators
+- Flags suspicious scanner user agents
+- Flags sensitive / admin path probing
+- Detects compact request bursts from a single IP
+- Scores overall request risk per IP
+- Writes JSON events, findings, summary, IP risk table, Markdown report, and triage handoff
 
-## Core Features
+## Requirements
 
-- SQLi pattern detection
-- XSS pattern detection
-- suspicious user agents
-- attack frequency chart
-- risk explanation
+- Python 3.10 or newer
+- Linux, macOS, or Windows
+- No third-party Python packages (standard library only)
+- Optional: Docker for the demo container
 
-## Status
-
-Working CLI MVP.
-
-
-## Install
+## Installation
 
 ```bash
+git clone https://github.com/SUDARSHANCHAUDHARI/WebAttackDetection.git
+cd WebAttackDetection
 pip install .
 ```
 
-This registers the `web-attack-detection` command. Or run directly:
+This registers the `web-attack-detection` CLI command.
+
+To run without installing:
 
 ```bash
 python3 main.py --help
 ```
 
-## Quick Start
+## Usage
 
 Analyze the included sample nginx log:
 
 ```bash
-python3 dashboard/app.py --log data/nginx-web-attacks.log --out-dir reports
+python3 main.py --log data/nginx-web-attacks.log --out-dir reports
 ```
 
-Run tests:
+Generated outputs in `reports/`:
+
+- `events.json` — parsed access events
+- `findings.json` — detected attack indicators
+- `summary.json` — counts and severity breakdown
+- `ip-risk.json` — per-IP risk score table
+- `report.md` — full Markdown detection report
+- `triage.md` — analyst triage checklist
+
+## Project Structure
+
+```
+WebAttackDetection/
+├── dashboard/      CLI dashboard (entrypoint)
+├── src/            Parsers and detectors
+├── data/           Safe sample nginx logs
+├── reports/        Example generated output
+├── docker/         Dockerfile + compose support
+├── docs/           Architecture, security notes, demo
+├── tests/          Unit tests
+├── main.py         CLI entrypoint
+├── pyproject.toml  Package metadata
+└── LICENSE
+```
+
+## Testing
 
 ```bash
 python3 -m unittest discover -s tests -p 'test_*.py'
 ```
-
-## MVP Capabilities
-
-- Parses nginx combined access logs.
-- Detects SQL injection indicators.
-- Detects XSS payload indicators.
-- Flags suspicious scanner user agents.
-- Flags sensitive/admin path probing.
-- Detects compact request bursts from one IP.
-- Scores overall request risk.
-- Writes JSON events, findings, summary, IP risk table, Markdown report, and triage handoff.
-
-## Demo Artifacts
-
-- [Architecture](docs/ARCHITECTURE.md)
-- [Security notes](docs/SECURITY_NOTES.md)
-- [Demo walkthrough](docs/DEMO.md)
-- [Release notes](docs/RELEASE_NOTES.md)
-- [Sample report](reports/report.md)
-- [Sample triage report](reports/triage.md)
-- [Sample IP risk table](reports/ip-risk.json)
 
 ## Docker Demo
 
@@ -83,10 +92,29 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 docker compose run --rm web-attack-demo
 ```
 
+## Safe Use
+
+This project is defensive and analysis-focused. Use only with logs, systems, and lab environments you own or have explicit written permission to assess. The included sample log is synthetic and safe for public demo use.
+
+## Status
+
+Working CLI MVP with tests, sample data, and Docker support.
+
 ## Roadmap
 
-- Add allowlist/suppression support for authorized scanners.
-- Add request-window tuning through config.
-- Add endpoint-level risk grouping.
-- Add dashboard charts for attack frequency and IP activity.
-- Prepare GitHub release `v0.1.0-mvp`.
+- Allowlist / suppression support for authorized scanners
+- Request-window tuning through config
+- Endpoint-level risk grouping
+- Dashboard charts for attack frequency and IP activity
+- GitHub release `v0.1.0-mvp`
+
+## License
+
+Released under the [MIT License](LICENSE). You are free to use, modify, and distribute this software with attribution.
+
+## Author
+
+**Sudarshan Chaudhari** — [SudarshanTechLabs](https://github.com/SUDARSHANCHAUDHARI)
+Bangkok, Thailand
+
+For inquiries: open an issue on [GitHub](https://github.com/SUDARSHANCHAUDHARI/WebAttackDetection/issues).
