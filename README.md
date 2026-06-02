@@ -29,6 +29,19 @@ This project is defensive and analysis-focused. Use only with logs, systems, rep
 
 Working CLI MVP.
 
+
+## Install
+
+```bash
+pip install .
+```
+
+This registers the `web-attack-detection` command. Or run directly:
+
+```bash
+python3 main.py --help
+```
+
 ## Quick Start
 
 Analyze the included sample nginx log:
